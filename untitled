@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+#defind mod 1000000007
+using namespace std;
+int dp[1000]
+int main()
+{
+	int t;
+	int n,l,r,p;
+	scanf("%d",&t);
+	while(t--)
+	{
+		scanf("%d%d%d",&n,&l,&r);
+		p=r-l;
+		for(int j=0;j<p;j++)
+		dp[0][j]=1;
+		for(int i=1;i<n;i++)
+		{
+			for(int j=0;j<p;j++)
+			{
+				dp[i][j]=0;
+				for(int k=0;k<j;k++)
+				{
+					dp[i][j]+=dp[i-1][k];
+				}
+			}
+		}
+		int sum=0;
+		for(int i=1;i<n;i++)
+		{
+			sum+=dp[i][p-1];
+		}
+		scanf("%d\n",sum);
+	}
+	
+
+}
